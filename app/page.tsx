@@ -1,101 +1,233 @@
+"use client";
+import { IconCloudComponet } from "@/components/animations/cloud";
+import Card from "@/components/card";
+import Connect from "@/components/connect";
+import EducationAndExp from "@/components/eduction-experience";
+import Header from "@/components/header";
+import Meteors from "@/components/magicui/meteors";
+import ProductComponent from "@/components/projectcard";
+import ShowCode from "@/components/showcodesnip";
+import { Spacer } from "@/components/spacer";
+import {
+  Car,
+  Code,
+  Github,
+  InstagramIcon,
+  Linkedin,
+  Loader2,
+  Moon,
+  Sidebar,
+  X,
+} from "lucide-react";
 import Image from "next/image";
+
+type Links = {
+  name: string;
+  url: string;
+};
+
+export const links = [
+  { name: "About Me", url: "#about" },
+  { name: "Projects", url: "#proejcts" },
+  { name: "Resume", url: "#resume" },
+  { name: "Contact", url: "#contact" },
+];
+
+export const socialMediaIcons = [
+  { name: "LinkedIn", icon: <Linkedin className="color-red-400" /> },
+  { name: "GitHub", icon: <Github /> },
+  { name: "X", icon: <X /> },
+  { name: "theme", icon: <InstagramIcon /> },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="w-full relative overflow-hidde h-full">
+      <div className="absolut inset-0 h-full -z-10 overflow-hidden fixed">
+        <Meteors number={30} />
+      </div>
+      <div className="w-full mt-20">
+        <div className="max-w-5xl mx-auto ">
+          <h1 className=" max-lg:pl-4 font-name-font text-5xl">
+            Ebenezer <span className="outline-text-stroke">Frimpong</span>
+          </h1>
+          <Header />
+          <div className="gap-4 max-lg:px-4">
+            {/* Other Section */}
+            <section className=" lg:ml-auto custom-border lg:w-[70%]  pb-8  ">
+              <section className="flex flex-col" id="about">
+                <div className="flex flex-col md:flex-row backdrop-blur-sm">
+                  <div className="w-full max-md:py-4 custom-border border-l-0 border-t-0 lg:w-1/3 border-r-0 flex justify-center items-center">
+                    <div className="h-[1px] w-full bg-gray-500/20"></div>
+                    <Image
+                      src={"/yy.png"}
+                      width={160}
+                      height={160}
+                      alt="Ebenezer Frimpong"
+                      className="rounded-full custom-border"
+                    />
+                    <div className="h-[1px] w-full bg-gray-500/20"></div>
+                  </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+                  <div className="custom-border border-t-0 border-r-0 space-y-2 w-full overflow-hidden max-md:border-l-0">
+                    <SectionHeader title="About Me" />
+                    <div className="px-4 ">
+                      <h1 className="custom-header">Software Egineer</h1>
+                      {/* Tech Stack */}
+                      <div className=" ">
+                        <ul className="flex">
+                          {socialMediaIcons.map((link, index) => (
+                            <li
+                              key={link.name}
+                              className={` border border-gray-500/20 w-full py-4 md:pl-4 font-popping-font [&:nth-child(${
+                                index + 1
+                              })]:border-l-0`}
+                            >
+                              <a href={link.name}>{link.icon}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <p className="text-gray-400 mt-4">
+                        I am a junior-level Software Engineer at Amorte and Emfip LLC,
+                        Sheridan, Wyoming, passionate about tackling challenges
+                        and delivering high-quality solutions. With a strong
+                        foundation in Most of the programming languages like Java, Pyhton and JavaScript, I excel in developing efficient and scalable
+                        applications. I am committed to continuous learning and
+                        applying my skills to solve complex problems and drive
+                        impactful results. Explore my portfolio to see how I
+                        turn challenges into success through innovative coding
+                        and effective problem-solving
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="backdrop-blur-sm">
+                  <ShowCode show="one" />
+                </div>
+                <div className="border-b border-b-gray-500/20"></div>
+                <div className="overflow-hidden">
+                  <SectionHeader title="Tech Stack" />
+                </div>
+                <section className="backdrop-blur overflow-hidden border-b   border-gray-500/20 ">
+                  <h1 className="custom-header ml-4">Framwork & Tools</h1>
+                  <IconCloudComponet />
+                </section>
+              </section>
+
+              <Spacer />
+              {/* Projects */}
+              <section id="proejcts">
+                <Card className="relative">
+                  <ProductComponent />
+                </Card>
+              </section>
+              <div className="backdrop-blur-sm border-b border-gray-500/20">
+                <ShowCode show="two" />
+              </div>
+              <Spacer />
+              {/* Resume */}
+              <section id="resume">
+                <Card className="">
+                  <SectionHeader title="Resume" />
+                  <h1 className="custom-header ml-4">Education & Experience</h1>
+                  <div className="grid grid-cols-1 md:grid-cols-2 ">
+                    <div className="">
+                      <EducationAndExp
+                        className="border-none"
+                        title="Computer and Information Science"
+                        date="2020 - 2024"
+                        desc="Springfield College"
+                        isEducation={true}
+                      />
+                    </div>
+                    <div className="max-md:pt-4">
+                      <EducationAndExp
+                        title="Full-Stack Developer"
+                        desc="Amoarte, Connecticut, Remote"
+                        date="2024 - "
+                        isEducation={false}
+                      />
+                      <EducationAndExp
+                        title="Software Engineer"
+                        desc="Emfip LLC, Wyoming"
+                        date="2024 - "
+                      />
+                    </div>
+                  </div>
+                </Card>
+              </section>
+              <Spacer />
+              <div className="backdrop-blur-sm border-t border-gray-500/20">
+                <ShowCode show="three" />
+              </div>
+              <section id="contact">
+                <Card className="relative border-b-0">
+                  <SectionHeader title="Network" />
+                  <div className="pl-4 space-y-4">
+                    <h1 className="custom-header">Let&apos;s Connect</h1>
+                    <div>
+                      <p className="text-gray-400">
+                        Let's bring your ideas to life! With 1+ years of
+                        experience in both front-end and back-end
+                        development, I specialize in building modern,
+                        responsive, scalable, and high-performance applications.
+                        Whether you need seamless API integration, pixel-perfect
+                        designs from Figma, or efficient deployment, I'm here to
+                        help. Let's collaborate to create something exceptional.
+                        Feel free to get in touch!
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <CustomerLine
+                      title="Email: efrimpong@springfieldcollege.edu"
+                      desc="Chiago, IL"
+                    />
+                  </div>
+                  <Connect />
+                </Card>
+              </section>
+            </section>
+            <footer className="lg:ml-auto  border-b-0 lg:w-[70%] relative mb-10 ">
+              <div className="flex items-center absolute bottom-0 py-4 ">
+                <div className="w-10 h-[1px] bg-gray-500/20"></div>
+                <div className="pl-4 space-y-2 border-l border-gray-500/20">
+                  <p className="text-gray-500 hover:text-white transition-all">
+                    Design and built by&nbsp;
+                    <a
+                      href="https://www.linkedin.com/in/efrimpong"
+                      className="italic"
+                    >
+                      efrimpong ❤️
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </footer>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
 }
+
+export const SectionHeader = ({ title }: { title: string }) => {
+  return (
+    <h1 className="outline-text-stroke-1 text-5xl text-right -mt-2 transition-all">
+      {title}
+    </h1>
+  );
+};
+
+const CustomerLine = ({ title, desc }: { title: string; desc: string }) => {
+  return (
+    <div className="flex items-center">
+      <div className="h-[1px] w-12 bg-gray-500/20"></div>
+      <div className="pl-4 space-y-2 border-l border-gray-500/20">
+        <h2 className="font-popping-font">{title}</h2>
+        <p className="text-gray-500">@ {desc}</p>
+      </div>
+    </div>
+  );
+};
