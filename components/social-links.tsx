@@ -1,10 +1,11 @@
 import React from "react";
+import RenderIcon from "./rendericon";
 
 const SocialLinks = ({
   icon,
   href,
 }: {
-  icon: React.ReactNode;
+  icon: string;
   href: string;
 }) => {
   return (
@@ -14,7 +15,9 @@ const SocialLinks = ({
         <span></span>
         <span></span>
         <span></span>
-        <span className="fab">{icon}</span>
+        <span className="fab">
+          <RenderIcon name={icon} />
+        </span>
       </div>
     </a>
   );

@@ -6,39 +6,14 @@ import EducationAndExp from "@/components/eduction-experience";
 import Header from "@/components/header";
 import Meteors from "@/components/magicui/meteors";
 import ProductComponent from "@/components/projectcard";
+import RenderIcon from "@/components/rendericon";
+import SectionHeader from "@/components/section-header";
 import ShowCode from "@/components/showcodesnip";
 import { Spacer } from "@/components/spacer";
-import {
-  Car,
-  Code,
-  Github,
-  InstagramIcon,
-  Linkedin,
-  Loader2,
-  Moon,
-  Sidebar,
-  X,
-} from "lucide-react";
+import { SocialLinksType } from "@/lib";
+import { socialMediaIcons } from "@/lib/data";
+
 import Image from "next/image";
-
-type Links = {
-  name: string;
-  url: string;
-};
-
-export const links = [
-  { name: "About Me", url: "#about" },
-  { name: "Projects", url: "#proejcts" },
-  { name: "Resume", url: "#resume" },
-  { name: "Contact", url: "#contact" },
-];
-
-export const socialMediaIcons = [
-  { name: "LinkedIn", icon: <Linkedin className="color-red-400" /> },
-  { name: "GitHub", icon: <Github /> },
-  { name: "X", icon: <X /> },
-  { name: "theme", icon: <InstagramIcon /> },
-];
 
 export default function Home() {
   return (
@@ -59,12 +34,12 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row backdrop-blur-sm">
                   <div className="w-full max-md:py-4 custom-border border-l-0 border-t-0 lg:w-1/3 border-r-0 flex justify-center items-center">
                     <div className="h-[1px] w-full bg-gray-500/20"></div>
-                    <Image
-                      src={"/yy.png"}
+                    <img
+                      src={"/images/eben.png"}
                       width={160}
                       height={160}
                       alt="Ebenezer Frimpong"
-                      className="rounded-full custom-border"
+                      className="w-[160px] h-[160px] rounded-full custom-border"
                     />
                     <div className="h-[1px] w-full bg-gray-500/20"></div>
                   </div>
@@ -76,28 +51,31 @@ export default function Home() {
                       {/* Tech Stack */}
                       <div className=" ">
                         <ul className="flex">
-                          {socialMediaIcons.map((link, index) => (
-                            <li
-                              key={link.name}
-                              className={` border border-gray-500/20 w-full py-4 md:pl-4 font-popping-font [&:nth-child(${
-                                index + 1
-                              })]:border-l-0`}
-                            >
-                              <a href={link.name}>{link.icon}</a>
-                            </li>
-                          ))}
+                          {socialMediaIcons.map(
+                            (link: SocialLinksType, index: number) => (
+                              <li
+                                key={link.name}
+                                className={` border border-gray-500/20 w-full py-4 md:pl-4 font-popping-font border-r-0 last:border-rP`}
+                              >
+                                <a href={link.href}>
+                                  <RenderIcon name={link.icon} />
+                                </a>
+                              </li>
+                            )
+                          )}
                         </ul>
                       </div>
                       <p className="text-gray-400 mt-4">
-                        I am a junior-level Software Engineer at Amorte and Emfip LLC,
-                        Sheridan, Wyoming, passionate about tackling challenges
-                        and delivering high-quality solutions. With a strong
-                        foundation in Most of the programming languages like Java, Pyhton and JavaScript, I excel in developing efficient and scalable
-                        applications. I am committed to continuous learning and
-                        applying my skills to solve complex problems and drive
-                        impactful results. Explore my portfolio to see how I
-                        turn challenges into success through innovative coding
-                        and effective problem-solving
+                        I am a junior-level Software Engineer at Amorte and
+                        Emfip LLC, Sheridan, Wyoming, passionate about tackling
+                        challenges and delivering high-quality solutions. With a
+                        strong foundation in Most of the programming languages
+                        like Java, Pyhton and JavaScript, I excel in developing
+                        efficient and scalable applications. I am committed to
+                        continuous learning and applying my skills to solve
+                        complex problems and drive impactful results. Explore my
+                        portfolio to see how I turn challenges into success
+                        through innovative coding and effective problem-solving
                       </p>
                     </div>
                   </div>
@@ -169,13 +147,13 @@ export default function Home() {
                     <div>
                       <p className="text-gray-400">
                         Let's bring your ideas to life! With 1+ years of
-                        experience in both front-end and back-end
-                        development, I specialize in building modern,
-                        responsive, scalable, and high-performance applications.
-                        Whether you need seamless API integration, pixel-perfect
-                        designs from Figma, or efficient deployment, I'm here to
-                        help. Let's collaborate to create something exceptional.
-                        Feel free to get in touch!
+                        experience in both front-end and back-end development, I
+                        specialize in building modern, responsive, scalable, and
+                        high-performance applications. Whether you need seamless
+                        API integration, pixel-perfect designs from Figma, or
+                        efficient deployment, I'm here to help. Let's
+                        collaborate to create something exceptional. Feel free
+                        to get in touch!
                       </p>
                     </div>
                   </div>
@@ -211,14 +189,6 @@ export default function Home() {
     </main>
   );
 }
-
-export const SectionHeader = ({ title }: { title: string }) => {
-  return (
-    <h1 className="outline-text-stroke-1 text-5xl text-right -mt-2 transition-all">
-      {title}
-    </h1>
-  );
-};
 
 const CustomerLine = ({ title, desc }: { title: string; desc: string }) => {
   return (

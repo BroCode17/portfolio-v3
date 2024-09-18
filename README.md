@@ -26,7 +26,7 @@ Welcome to my personal portfolio website! This project showcases my work, skills
 
 ## 🖼️ Preview
 
-You can check out a live preview of the site [here](https://your-portfolio-site-url.com) 🌐.
+You can check out a live preview of the site [here](https://v2.efrimpong.com) 🌐.
 
 ## 🛠️ Installation and Setup
 
@@ -34,7 +34,7 @@ To get started with this project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/portfolio-website.git
+   git clone https://github.com/BroCode17/portfolio-v3.git
    cd portfolio-website
    ```
 2. **Install dependencies**

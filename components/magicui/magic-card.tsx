@@ -49,7 +49,7 @@ export function MagicCard({
         className,
       )}
     >
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 w-full h-full">{children}</div>
       <motion.div
         className="pointer-events-none absolute -inset-px  opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{

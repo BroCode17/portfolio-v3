@@ -11,41 +11,15 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, X } from "lucide-react";
 import { MagicCard } from "./magicui/magic-card";
-import { SectionHeader } from "@/app/page";
 import { cn } from "@/lib/utils";
 import { CardContent } from "./ui/card";
+import { Project } from "@/lib";
+import { projects } from "@/lib/data";
+import SectionHeader from "./section-header";
 
 
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  techStack: string[];
-  sourceUrl: string;
-  liveUrl: string;
-}
 
-const projects: Project[] = [
-  {
-    title: "E-commerce Platform",
-    description:
-      "A full-featured e-commerce platform with user authentication, product management, and payment integration.",
-    image: "/p1.png",
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-    sourceUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://ecommerce-platform-demo.vercel.app",
-  },
-  {
-    title: "Platform",
-    description:
-      "A full-featured e-commerce platform with user authentication, product management, and payment integration.",
-    image: "/p2.png",
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-    sourceUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://ecommerce-platform-demo.vercel.app",
-  },
-  // Add more projects here
-];
+
 
 function ProjectCard({
   project,
@@ -57,7 +31,7 @@ function ProjectCard({
   className?: string;
 }) {
   return (
-    <div className="flex flex-col justify-center items-center h-96">
+    <div className="flex flex-col justify-center items-center h-[300px]" key={project.title}>
       <div className=" bg-gray-500/20 w-[1px] h-full"></div>
       <div className="flex flex-row  relative w-full items-center">
         <div className=" bg-gray-500/20 h-[1px] w-14"></div>
@@ -73,13 +47,13 @@ function ProjectCard({
             gradientColor={"#262626"}
           >
             <img
-              src={project.image}
+              src={`/images/${project.image}`}
               alt={project.title}
-              className="w-full h-full object-cover text-sm relative"
+              className="w-full h-auto object-scale-fit text-sm relative"
             />
              <div className="absolute bottom-0 z-1 backdrop-blur supports-[backdrop-filter]:bg-transparent/80">
            <CardContent className="p-4">
-              <h3 className="text-sm font-bold mb-1 text-white">
+              <h3 className="text-sm  mb-1 text-white font-popping-font">
                 {project.title}
               </h3>
               <p className="text-gray-500 text-sm line-clamp-2">
@@ -88,16 +62,6 @@ function ProjectCard({
             </CardContent>
            </div> 
           </MagicCard>
-          {/* <div className="absolute bottom-0 z-1">
-           <CardContent className="p-4">
-              <h3 className="text-sm font-bold mb-2 text-white">
-                {project.title}
-              </h3>
-              <p className="text-gray-500 text-sm line-clamp-2">
-                {project.description}
-              </p>
-            </CardContent>
-           </div> */}
         </div>
         <div className=" bg-gray-500/20 h-[1px] w-14"></div>
       </div>
@@ -115,14 +79,15 @@ function ProjectModal({
   isOpen: boolean;
   onClose: () => void;
 }) {
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={onClose} key={project.title}>
       <DialogContent className="sm:max-w-[425px] bg-transparent backdrop-blur custom-border rounded-none">
         <DialogHeader>
           <DialogTitle>{project.title}</DialogTitle>
         </DialogHeader>
         <img
-          src={project.image}
+          src={`/images/${project.image}`}
           alt={project.title}
           className="w-full h-48 object-cover custom-border mb-4"
         />
@@ -145,10 +110,11 @@ function ProjectModal({
             </div>
           </div>
           <div className="flex space-x-4">
-            <Button
+            { project.sourceUrl.length > 0 && <Button
               variant="outline"
               asChild
               className="border-gray-500/20 rounded-none"
+
             >
               <a
                 href={project.sourceUrl}
@@ -158,7 +124,7 @@ function ProjectModal({
               >
                 <Github className="mr-2 h-4 w-4" /> Source Code
               </a>
-            </Button>
+            </Button> }
             <Button
               asChild
               className="rounded-none bg-transparent custom-border hover:bg-gray-500/20"

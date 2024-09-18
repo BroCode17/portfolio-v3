@@ -1,8 +1,9 @@
 "use client";
-import { links, socialMediaIcons } from "@/app/page";
 import React, { useEffect, useRef, useState } from "react";
 import { BorderBeam } from "./magicui/border-beam";
 import SocialLinks from "./social-links";
+import { links, socialMediaIcons} from "@/lib/data";
+import { SocialLinksType } from "@/lib";
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -41,7 +42,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-64 fixed max-lg:top-0 max-lg:w-full max-lg:z-20 lg:justify-center overflow-hidden">
+    <header className="w-64 fixed max-lg:top-0 max-lg:w-full max-lg:z-20 lg:justify-center">
       <div className="w-full absolute">
         {/* <BorderBeam
           size={100}
@@ -99,17 +100,10 @@ const Header = () => {
           </ul>
           <ul className="hidden lg:flex">
             {socialMediaIcons.map(
-              (link: { name: string; icon: React.ReactNode }) => (
-                // <a
-                // href={link.name}
-                //   key={link.name}
-                //   className="border border-gray-500/20 w-full py-4 px-4 relative logo"
-                // >
-                //   <li  className="flex items-center justify-center w-full">{link.icon}</li>
-                // </a>
-                <div className="icon-cont border border-gray-500/20 border-t-0  w-full flex justify-center items-center border-r-0 last:border-r ">
+              (link: SocialLinksType) => (
+                <div className="icon-cont border border-gray-500/20 border-t-0  w-full flex justify-center items-center border-r-0 last:border-r " key={link.href}>
                   <div className="icons">
-                    <SocialLinks href={""} icon={link.icon} />
+                    <SocialLinks href={link.href} icon={link.icon} />
                   </div>
                 </div>
               )
