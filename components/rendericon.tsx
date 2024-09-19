@@ -9,7 +9,7 @@ const RenderIcon = ({name}: {name:string}) => {
           case 'github':
             return <Github />
           case 'x':
-            return <FaXTwitter  />
+            return <FaXTwitter  size={24}/>
           default:
             return <Instagram />
         }

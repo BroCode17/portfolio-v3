@@ -44,23 +44,24 @@ export default function Home() {
                     <div className="h-[1px] w-full bg-gray-500/20"></div>
                   </div>
 
-                  <div className="custom-border border-t-0 border-r-0 space-y-2 w-full overflow-hidden max-md:border-l-0">
+                  <div className="custom-border border-t-0 border-r-0 space-y-2 w-full overflow-hidden max-md:border-l-0 pb-4">
                     <SectionHeader title="About Me" />
                     <div className="px-4 ">
-                      <h1 className="custom-header">Software Egineer</h1>
+                      <h1 className="custom-header">Software Engineer</h1>
                       {/* Tech Stack */}
                       <div className=" ">
-                        <ul className="flex">
+                        <ul className="flex justify-center ">
                           {socialMediaIcons.map(
                             (link: SocialLinksType, index: number) => (
-                              <li
+                              <a
+                                href={link.href}
                                 key={link.name}
-                                className={` border border-gray-500/20 w-full py-4 md:pl-4 font-popping-font border-r-0 last:border-rP`}
+                                className={` border border-gray-500/20  py-4  font-popping-font border-r-0 last:border-r flex justify-center w-full h-full`}
                               >
-                                <a href={link.href}>
+                                <li className="h-full">
                                   <RenderIcon name={link.icon} />
-                                </a>
-                              </li>
+                                </li>
+                              </a>
                             )
                           )}
                         </ul>

@@ -42,7 +42,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-64 fixed max-lg:top-0 max-lg:w-full max-lg:z-20 lg:justify-center">
+    <header className="w-64 fixed max-lg:-top-1 max-lg:w-full max-lg:z-20 lg:justify-center max-lg:supports-[backdrop-filter]:bg-transparent/50">
       <div className="w-full absolute">
         {/* <BorderBeam
           size={100}
@@ -75,7 +75,7 @@ const Header = () => {
                     ></div>
                   </div>
                   {/* Mobile Nav */}
-                  <div className="relative flex items-center justify-center w-8 h-8 md:hidden">
+                  <div className="relative w flex items-center justify-center w-8 h-8 md:hidden">
                     <div
                       className={`absolute -z-10 border border-dashed inset-0 rounded-full
                        
