@@ -19,7 +19,7 @@ const EducationAndExp = ({
     <div className={cn(`md:border-l border-gray-500/20 space-y-3`, className)}>
       <div className="pl-12">
         {isEducation === true && <GraduationCap size={40} />}
-        { isEducation === false && <BriefcaseBusiness size={40} />  }
+        {isEducation === false && <BriefcaseBusiness size={40} />  }
       </div>
       <div className="flex items-center">
         <div className="h-3 w-3 rounded-full bg-gray-500/20 -ml-[6px] z-1"></div>

@@ -2,6 +2,7 @@
 import { IconCloudComponet } from "@/components/animations/cloud";
 import Card from "@/components/card";
 import Connect from "@/components/connect";
+import { DownloadButton } from "@/components/download-btn";
 import EducationAndExp from "@/components/eduction-experience";
 import Header from "@/components/header";
 import Meteors from "@/components/magicui/meteors";
@@ -12,8 +13,8 @@ import ShowCode from "@/components/showcodesnip";
 import { Spacer } from "@/components/spacer";
 import { SocialLinksType } from "@/lib";
 import { socialMediaIcons } from "@/lib/data";
-
-import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -116,22 +117,27 @@ export default function Home() {
                         className="border-none"
                         title="Computer and Information Science"
                         date="2020 - 2024"
-                        desc="Springfield College"
+                        desc="Springfield College, MA"
                         isEducation={true}
                       />
                     </div>
                     <div className="max-md:pt-4">
                       <EducationAndExp
                         title="Full-Stack Developer"
-                        desc="Amoarte, Connecticut, Remote"
-                        date="2024 - "
+                        desc="Amoarte LLC, Connecticut, Remote"
+                        date="2024 - Present"
                         isEducation={false}
                       />
                       <EducationAndExp
                         title="Software Engineer"
-                        desc="Emfip LLC, Wyoming"
-                        date="2024 - "
+                        desc="Pharstcare, Ghana"
+                        date="2023 - 2024"
                       />
+                      {/* Resume download Button */}
+                     <DownloadButton 
+                      fileName="Ebenezer_A_Frimpong.pdf"
+                      label="Download Resume"
+                     />
                     </div>
                   </div>
                 </Card>
