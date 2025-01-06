@@ -13,8 +13,7 @@ import ShowCode from "@/components/showcodesnip";
 import { Spacer } from "@/components/spacer";
 import { SocialLinksType } from "@/lib";
 import { socialMediaIcons } from "@/lib/data";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
+
 
 export default function Home() {
   return (
@@ -72,12 +71,7 @@ export default function Home() {
                         Emfip LLC, Sheridan, Wyoming, passionate about tackling
                         challenges and delivering high-quality solutions. With a
                         strong foundation in Most of the programming languages
-                        like Java, Pyhton and JavaScript, I excel in developing
-                        efficient and scalable applications. I am committed to
-                        continuous learning and applying my skills to solve
-                        complex problems and drive impactful results. Explore my
-                        portfolio to see how I turn challenges into success
-                        through innovative coding and effective problem-solving
+                        like <b>Java</b>, <b>Pyhton</b>, <b>JavaScript</b> and <b>Rust</b>, I excel in developing efficient and scalable applications. I am committed tocontinuous learning and applying my skills to solve complex problems and drive impactful results. Explore my portfolio to see how I turn challenges into success through innovative coding and effective problem-solving.
                       </p>
                     </div>
                   </div>
@@ -166,7 +160,7 @@ export default function Home() {
                   </div>
                   <div>
                     <CustomerLine
-                      title="Email: efrimpong@springfieldcollege.edu"
+                      title="Email: ebenezerfrimpong17@gmail.com"
                       desc="Chiago, IL"
                     />
                   </div>

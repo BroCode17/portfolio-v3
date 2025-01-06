@@ -5,7 +5,7 @@ import path from "path"
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const fileName = searchParams.get("file");
-   
+
     if(!fileName) 
         return new NextResponse("File name is required",{status: 400}) // Bad request
     const filePath = path.join(process.cwd(), 'public', fileName);
