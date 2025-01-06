@@ -1,10 +1,10 @@
 import CodeSnippet from "./codesnippet"
 
 const  javaCode = `
-package com.eben.portfolio.controller;  
+package com.efrimpong.portfolio.controller;  
 
-import com.example.portfolio.model.PortfolioItem;  
-import com.example.portfolio.service.PortfolioService;  
+import com.efrimpong.portfolio.model.PortfolioItem;  
+import com.efrimpong.portfolio.service.PortfolioService;  
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
