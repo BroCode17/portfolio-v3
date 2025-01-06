@@ -3,8 +3,9 @@ import fs from "fs";
 import path from "path"
 
 export async function GET(request: NextRequest) {
-    const searchParams = request.nextUrl.searchParams;
-    const fileName = searchParams.get("file");
+    // const searchParams = request.nextUrl.searchParams;
+    // const fileName = searchParams.get("file");
+    const fileName = 'Ebenezer_A_Frimpong.pdf';
 
     if(!fileName) 
         return new NextResponse("File name is required",{status: 400}) // Bad request
