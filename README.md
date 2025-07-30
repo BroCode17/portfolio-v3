@@ -26,7 +26,7 @@ Welcome to my personal portfolio website! This project showcases my work, skills
 
 ## 🖼️ Preview
 
-You can check out a live preview of the site [here](https://v2.efrimpong.com) 🌐.
+You can check out a live preview of the site [here](https://efrimpong.com) 🌐.
 
 ## 🛠️ Installation and Setup
 

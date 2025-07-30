@@ -15,4 +15,5 @@ export interface Project {
   techStack: string[];
   sourceUrl: string;
   liveUrl: string;
+  tags?: string[];
 }

@@ -1,5 +1,4 @@
 "use client";
-import { IconCloudComponet } from "@/components/animations/cloud";
 import Card from "@/components/card";
 import Connect from "@/components/connect";
 import { DownloadButton } from "@/components/download-btn";
@@ -12,12 +11,13 @@ import SectionHeader from "@/components/section-header";
 import ShowCode from "@/components/showcodesnip";
 import { Spacer } from "@/components/spacer";
 import { SocialLinksType } from "@/lib";
-import { socialMediaIcons } from "@/lib/data";
-
+import { aboutMe, socialMediaIcons } from "@/lib/data";
+import PDFViewer from '@/components/pdf-viewer'
+import ShowIconCloudComponent from "@/components/show-icon-cloud-component";
 
 export default function Home() {
   return (
-    <main className="w-full relative overflow-hidde h-full">
+    <main className="w-full relative overflow-hidde h-full" style={{viewTimelineName: 'page'}}>
       <div className="absolut inset-0 h-full -z-10 overflow-hidden fixed">
         <Meteors number={30} />
       </div>
@@ -67,11 +67,7 @@ export default function Home() {
                         </ul>
                       </div>
                       <p className="text-gray-400 mt-4">
-                        I am a junior-level Software Engineer at Amorte and
-                        Emfip LLC, Sheridan, Wyoming, passionate about tackling
-                        challenges and delivering high-quality solutions. With a
-                        strong foundation in Most of the programming languages
-                        like <b>Java</b>, <b>Pyhton</b>, <b>JavaScript</b> and <b>Rust</b>, I excel in developing efficient and scalable applications. I am committed tocontinuous learning and applying my skills to solve complex problems and drive impactful results. Explore my portfolio to see how I turn challenges into success through innovative coding and effective problem-solving.
+                       {aboutMe}
                       </p>
                     </div>
                   </div>
@@ -85,7 +81,7 @@ export default function Home() {
                 </div>
                 <section className="backdrop-blur overflow-hidden border-b   border-gray-500/20 ">
                   <h1 className="custom-header ml-4">Framwork & Tools</h1>
-                  <IconCloudComponet />
+                  <ShowIconCloudComponent />
                 </section>
               </section>
 
@@ -128,10 +124,11 @@ export default function Home() {
                         date="2023 - 2024"
                       />
                       {/* Resume download Button */}
-                     <DownloadButton 
-                      fileName="Ebenezer_A_Frimpong.pdf"
-                      label="Download Resume"
-                     />
+                      <DownloadButton
+                        fileName="Ebenezer_A_Frimpong.pdf"
+                        label="Download Resume"
+                      />
+                      
                     </div>
                   </div>
                 </Card>
@@ -186,6 +183,11 @@ export default function Home() {
             </footer>
           </div>
         </div>
+        <div className="container mx-auto p-4">
+                        <h1 className="text-2xl font-bold mb-4">My Resume</h1>
+                        <PDFViewer pdfUrl="../resume/Ebenezer_A_Frimpong.pdf" />
+          
+                      </div>
       </div>
     </main>
   );
